@@ -9,8 +9,10 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# 解压到/opt目录（需要输入密码）
-unzip -P "你的密码" xray.zip -d /opt/
+# 提示用户输入密码
+echo "请输入解压密码："
+# 解压到/opt目录（需要用户输入密码）
+unzip xray.zip -d /opt/
 
 # 检查解压是否成功
 if [ $? -ne 0 ]; then
