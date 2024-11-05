@@ -18,7 +18,7 @@ if ! command -v unzip &> /dev/null; then
 fi
 
 # 下载文件
-wget -O xray.zip "https://raw.githubusercontent.com/star8618/singbox/refs/heads/main/xray1.zip"
+wget -O xray1.zip "https://raw.githubusercontent.com/star8618/singbox/refs/heads/main/xray1.zip"
 
 # 检查下载是否成功
 if [ $? -ne 0 ]; then
@@ -29,7 +29,7 @@ fi
 # 提示用户输入密码
 echo "请输入解压密码："
 # 解压到/opt目录（需要用户输入密码）
-unzip xray.zip -d /opt/
+unzip xray1.zip -d /opt/
 
 # 检查解压是否成功
 if [ $? -ne 0 ]; then
