@@ -38,7 +38,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # 进入/opt/xray目录
-cd /opt/xray
+cd /opt/xray1
 
 # 给xray_reality文件设置权限
 sudo chmod 777 xray_reality
