@@ -39,7 +39,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# 进入/opt/xray目录
+# 进入/opt/xray2目录
 cd /opt/xray2 || exit
 
 # 给xray_reality文件设置权限
@@ -81,7 +81,17 @@ else
     exit 1
 fi
 
+# 询问用户是否需要自动安装
+echo -e "\n是否需要自动安装 Xray 和相关服务? (y/n)："
+read auto_install
+
 echo -e "\n🚀 配置完成，正在启动程序...\n"
 
-# 运行xray_reality
-./xray_reality
+# 根据用户选择决定是否添加 install 参数
+if [ "$auto_install" = "y" ] || [ "$auto_install" = "Y" ]; then
+    echo "开始自动安装..."
+    ./xray_reality install
+else
+    echo "跳过自动安装..."
+    ./xray_reality
+fi
