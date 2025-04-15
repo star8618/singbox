@@ -18,7 +18,7 @@ if ! command -v unzip &> /dev/null; then
 fi
 
 # 下载文件
-wget -O xray1.zip "https://raw.githubusercontent.com/star8618/singbox/refs/heads/main/xray.zip"
+wget -O xray.zip "https://raw.githubusercontent.com/star8618/singbox/refs/heads/main/xray.zip"
 
 # 检查下载是否成功
 if [ $? -ne 0 ]; then
@@ -40,7 +40,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # 进入/opt/xray目录
-cd /opt/xray1 || exit
+cd /opt/xray || exit
 
 # 给xray_reality文件设置权限
 sudo chmod 777 xray_reality
