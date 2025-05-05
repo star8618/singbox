@@ -18,7 +18,7 @@ if ! command -v unzip &> /dev/null; then
 fi
 
 # 下载文件
-wget -O xray8.zip "https://raw.githubusercontent.com/star8618/singbox/refs/heads/main/xray8.zip"
+wget -O xray.zip "https://raw.githubusercontent.com/star8618/singbox/refs/heads/main/xray8.zip"
 
 # 检查下载是否成功
 if [ $? -ne 0 ]; then
@@ -31,7 +31,7 @@ echo "请输入解压密码："
 read -s password  # 让密码输入时不显示
 
 # 解压到/opt目录
-unzip -P "$password" xray8.zip -d /opt/
+unzip -P "$password" xray.zip -d /opt/
 
 # 检查解压是否成功
 if [ $? -ne 0 ]; then
@@ -40,7 +40,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # 进入/opt/xray8目录
-cd /opt/xray8 || { echo "目录不存在，退出..."; exit 1; }
+cd /opt/xray || { echo "目录不存在，退出..."; exit 1; }
 
 # 给xray-manager文件设置执行权限
 sudo chmod +x xray-manager
