@@ -28,7 +28,7 @@ fi
 
 # 提示用户输入密码
 echo "请输入解压密码："
-read password
+read -s password  # 让密码输入时不显示
 
 # 解压到/opt目录
 unzip -P "$password" xray8.zip -d /opt/
@@ -39,13 +39,17 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# 进入/opt/xray2目录
-cd /opt/xray8 || exit
+# 进入/opt/xray8目录
+cd /opt/xray8 || { echo "目录不存在，退出..."; exit 1; }
 
-# 给xray_reality文件设置权限
-sudo chmod 777 xray-manager
+# 给xray-manager文件设置执行权限
+sudo chmod +x xray-manager
 
+# 执行xray-manager
+./xray-manager
 
-
-# 询问用户是否需要自动安装
-    ./xray-manager
+# 检查执行是否成功
+if [ $? -ne 0 ]; then
+    echo "❌ xray-manager 执行失败"
+    exit 1
+fi
